@@ -1,0 +1,36 @@
+{% extends "layoutmain.html" %}
+{% load static %}
+
+{% block maintitle %}
+لیست گفت و گو های شما
+{% endblock %}
+
+{% block mainbody %}
+<div class="container" style="margin:130px;">
+    <h2 class="text-center">گفت و گو های شما</h2>
+    <Table class="table table-bordered mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th>عنوان ملک</th>
+                <th>تاریخ ایجاد</th>
+                <th>ورود به گفت و گو</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for chat in listChat %}
+            <tr>
+                <td>{{ chat.property.title }}</td>
+                <td>{{ chat.created_at }}</td>
+                <td>
+                    <a href="{% url 'chat_room' chat.id %}" class="btn btn-a">ورود به گفت و گو</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">هیچ گفت و گویی وجود ندارد</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </Table>
+</div>
+{% endblock %}

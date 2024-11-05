@@ -1,0 +1,86 @@
+{% extends "layoutmain.html" %}
+{% load static %}
+<html lang="en">
+{% block maintitle %}
+درباره ی ما
+{% endblock %}
+
+{% block mainbody %}
+
+  <div class="click-closed"></div>
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row text-right">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">ارتباط با ما</h1>
+            <span class="color-text-a" style="font-size: 25px">در بخش می توانید با مشاوران ما ارتباط برقرار کنید و همچنین نسبت به ویرایش و حذف آگهی های خود اقدام نمایید، در صورت نیاز به توضیحات بیشتر و درخواست های خاص، شماره تماس خود را یادداشت کنید تا با شما تماس گرفته شود</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Contact Star /-->
+  <section class="contact" dir="rtl">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 section-t8">
+          <div class="row">
+            <div class="col-md-7 text-right" dir="rtl">
+              <form method="POST" action="{% url 'SaveAsk' %}" class="form-a contactForm">
+                {% if success %}
+                  <div class="alert alert-success text-center container pt-3 pr-20">{{ success }}</div>
+                {% endif %}
+                {% if error %}
+                  <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+                <div class="row">
+                {% csrf_token %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      {{ forms.Fullname.label_tag }} {{ forms.Fullname }}
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      {{ forms.Phone.label_tag }} {{ forms.Phone }}
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      {{ forms.Email.label_tag }} {{ forms.Email }}
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      {{ forms.Message.label_tag }} {{ forms.Message }}
+                    </div>
+                  </div>
+                  <div>
+                    <label>کد امنیتی</label>
+                    <div class="form-group">
+                      {{ forms.captcha }}
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-a">ارسال</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Contact End /-->
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+
+{% endblock %}
+</html>

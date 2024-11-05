@@ -1,0 +1,53 @@
+{% extends "layoutmain.html" %}
+{% load static %}
+
+
+<html lang="en">
+
+{% block maintitle %}
+مدیریت آگهی ها
+{% endblock %}
+
+
+{% block mainbody %}
+
+<div class="click-closed"></div>
+<section class="property-list py-5" style="margin-top:100px">
+    <div class="container">
+        <h3 class="text-center mb-4">آگهی های ثبت شده شما</h3>
+        <div class="row">
+            {% for property in properties %}
+            <div class="col-md-4 mb-4 text-center">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ property.image.url }}" class="card-img-top" alt="{{ property.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ property.title }}</h5>
+                        <p class="card-text">{{ property.description|truncatewords:20 }}</p>
+                            <form method="post" action="" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="property_id" value="{{ property.pk }}">
+                                <p class="text-center">برای حذف و ویرایش به مشاورین ما اطلاع دهید پس از بررسی پیگیری می شود</p>
+                                <a type="button" href="Contacts" class="btn btn-block btn-warning">ارتباط با مشاوران</a>
+                            </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="property-form mt-20 text-right" dir="rtl">
+    <div class="container">
+        <div class="col-md-15 mx-auto">
+            <h3 class="text-center mb-10">ثبت ملک جدید</h3>
+            <form method="post" enctype="multipart/form-data" class="border p-4 rounded bg-light shadow-sm">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-block">ثبت آگهی</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+</html>

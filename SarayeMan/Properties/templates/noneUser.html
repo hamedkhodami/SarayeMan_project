@@ -1,0 +1,35 @@
+{% extends "layoutmain.html" %}
+{% load static %}
+
+
+<html lang="en">
+
+{% block maintitle %}
+کاربر فعالی وجود ندارد
+{% endblock %}
+
+
+{% block mainbody %}
+<section class="thanks layout_padding text-center" style="margin:140px;">
+    <div class="container">
+        <div class="heading_container">
+            <h2 class="mb-4" style="color: #3498db;"> کاربر فعالی وجود ندارد</h2>
+            <p class="lead mb-3">شما می توانید از امکانات زیر استفاده کنید تا به راحتی به حساب کاربری خود وارد شوید یا ثبت نام کنید</p>
+            <div class="alert alert-success mt-3 mb-4" role="alert" style="font-size: 28px;">
+                <p>اگر قبلا ثبت نام کرده اید، لطفا با نام کاربری خود وارد سایت شوید. در غیر این صورت می توانید ثبت نام کنید و از امکانات ویژه ی این سایت بهره مند شوید</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h4 class="mt-4" style="color: #2c3e50;">مراحل ورود و ثبت نام</h4>
+                    <ul class="list-group list-group-flush text-left">
+                        <li class="list-group-item text-center" style="font-size: 18px;">اگر قبلا ثبت نام کرده اید به بخش <a href="/Users/" class="text-primary"> ورود </a> بروید </li>
+                        <li class="list-group-item text-center" style="font-size: 18px;">اکر هنوز ثبت نام نکرده اید به بخش <a href="/Users/SignUsers" class="text-primary"> ثبت نام </a> ورود </li>
+                        <li class="list-group-item text-center" style="font-size: 18px;">پس از ثبت نام وارد سایت ما شوید و از خدمات ما بهره مند شوید</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+</html>

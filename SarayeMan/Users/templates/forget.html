@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+
+{% block title %}
+صفحه فراموشی رمز عبور
+{% endblock %}
+
+{% block forms %}
+    <h2 class="text-center">نام کاربری و رمز عبور خود را وارد کنید تا رمز عبور برای شما ارسال گردد </h2>
+    <br/>
+    <br/>
+    <br/>
+      <form class="form-group" action="{% url 'ForgetPasswords' %}">
+          {% csrf_token %}
+          {% for item in form %}
+            <div class="form-group text-right">
+                {{ item.label_tag }}
+                {{ item }}
+            </div>
+          {% endfor %}
+          <input type="submit" value=" در خواست رمز  " class="btn btn-warning">
+      </form>
+{% endblock %}

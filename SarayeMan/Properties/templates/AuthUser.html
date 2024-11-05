@@ -1,0 +1,31 @@
+{% extends "layoutmain.html" %}
+{% load static %}
+
+
+<html lang="en">
+
+{% block maintitle %}
+صفحه شخصی
+{% endblock %}
+
+
+{% block mainbody %}
+
+<div class="click-closed"></div>
+
+
+<section class="intro-single" dir="rtl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="title-single-box">
+                    <h2 class="title-single">شما با نام {{ user_st.User.first_name }} {{ user_st.User.last_name }} حضور دارید</h2>
+                    <p class="color-text-a text-right">شما به صورت کاربر فعال در سایت حضور دارد و به راحتی می توانید خرید خود را انجام بدین و همچنین با ما در ارتباط باشید </p>
+                    <a href="/Users/LogOutUser" class="btnExist btn btn-danger" > خروج از حساب کاربری </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+</html>
